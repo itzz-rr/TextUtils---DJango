@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Text Analyzer</title>
+    <style>
+        body{
+            background-color: rgb(247, 238, 226);
+        }
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            text-align: center;
+        }
+
+        .function {
+            text-align: left;
+            font-weight: bold;
+            margin-left: 50px;
+            margin-top: 8px;
+            padding: 5px;
+        }
+
+        button {
+            padding: 3px;
+            margin-top: 12px;
+            margin-left: 10px;
+            background-color: rgb(207, 176, 235);
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Header Part */
+        #header {
+            background-color: bisque;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 7px 10px;
+        }
+
+        #navLeftContainer {
+            display: flex;
+            align-items: center;
+        }
+
+        #title {
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        #subtitle {
+            font-weight: normal;
+            font-size: 10px;
+            text-align: center;
+
+        }
+
+        .navItems {
+            text-decoration: none;
+            color: purple;
+            font-weight: bold;
+            margin: 2px;
+        }
+
+        #navRightContainer {
+            display: flex;
+            align-items: center;
+        }
+        /* ---------------- */
+    </style>
+</head>
+
+<body>
+    <!-- Header Part -->
+    <nav id="header">
+        <div id="navLeftContainer">
+            <div id="title">Text Analyzer<br>
+                <div id="subtitle"> Analyze Text in a Click </div>
+            </div>
+        </div>
+
+        <div id="navRightContainer">
+            <div class="navItems"><a class="navItems" href="/">Home</a></div>
+            <div class="navItems">|</div>
+            <div class="navItems"><a class="navItems" href="/about">About Us</a></div>
+            <div class="navItems">|</div>
+            <div class="navItems"><a class="navItems" href="/exercise1">Exercise-1</a></div>
+        </div>
+    </nav>
+    <!-- ---------------------- -->
+
+
+    <h1>Text Analyzer - Analyzing text and do functions</h1>
+    <br>
+    <form action="/analyze" method='post'>{% csrf_token %}
+        <textarea name="text" placeholder="Enter Your text here..."
+            style='width:80%; height:150px; font-size:20px'></textarea><br>
+        <div class="function">
+            <input type="radio" name="analyze" value="removePunc">Remove Punctuations <br>
+            <input type="radio" name="analyze" value="capiFirst">Capitalize 1st letter <br>
+            <input type="radio" name="analyze" value="capiAll">Capitalize all <br>
+            <input type="radio" name="analyze" value="lowerAll">Lowercase all <br>
+            <button type="submit">Analyze Text</button>
+        </div>
+    </form>
+</body>
+
+</html>
